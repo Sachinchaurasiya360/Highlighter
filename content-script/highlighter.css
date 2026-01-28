@@ -1,0 +1,154 @@
+/* Highlight styles */
+.text-highlighter-mark {
+  cursor: pointer;
+  position: relative;
+  transition: opacity 0.2s ease;
+}
+
+.text-highlighter-mark:hover {
+  opacity: 0.8;
+}
+
+/* Color variants */
+.text-highlighter-yellow {
+  background-color: #ffeb3b;
+  color: #000;
+}
+
+.text-highlighter-green {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.text-highlighter-pink {
+  background-color: #ff4081;
+  color: #fff;
+}
+
+.text-highlighter-blue {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.text-highlighter-purple {
+  background-color: #9c27b0;
+  color: #fff;
+}
+
+/* Note tooltip */
+.text-highlighter-tooltip {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  max-width: 300px;
+  z-index: 10000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.text-highlighter-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #333;
+}
+
+/* Context menu overlay */
+.text-highlighter-menu {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  z-index: 10001;
+  display: flex;
+  gap: 4px;
+}
+
+.text-highlighter-menu-button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  border: 2px solid transparent;
+}
+
+.text-highlighter-menu-button:hover {
+  transform: scale(1.1);
+  border-color: #666;
+}
+
+.text-highlighter-menu-button.yellow {
+  background-color: #ffeb3b;
+}
+
+.text-highlighter-menu-button.green {
+  background-color: #4caf50;
+}
+
+.text-highlighter-menu-button.pink {
+  background-color: #ff4081;
+}
+
+.text-highlighter-menu-button.blue {
+  background-color: #2196f3;
+}
+
+.text-highlighter-menu-button.purple {
+  background-color: #9c27b0;
+}
+
+/* Action menu for existing highlights */
+.text-highlighter-action-menu {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 120px;
+}
+
+.text-highlighter-action-button {
+  padding: 8px 12px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.text-highlighter-action-button:hover {
+  background: #f5f5f5;
+}
+
+.text-highlighter-action-button.erase:hover {
+  background: #ffebee;
+  color: #f44336;
+}
+
+.text-highlighter-action-button.comment:hover {
+  background: #e3f2fd;
+  color: #2196f3;
+}

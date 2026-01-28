@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Highlighter Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Text Highlighter Pro</h1>
+      <div class="stats">
+        <span id="highlight-count">0 highlights</span>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="current">Current Page</button>
+      <button class="tab-button" data-tab="all">All Pages</button>
+      <button class="tab-button" data-tab="settings">Settings</button>
+    </div>
+
+    <!-- Current Page Tab -->
+    <div class="tab-content active" id="current-tab">
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search highlights...">
+        <div class="filter-colors">
+          <button class="color-filter" data-color="all" title="All">All</button>
+          <button class="color-filter yellow" data-color="yellow" title="Yellow"></button>
+          <button class="color-filter green" data-color="green" title="Green"></button>
+          <button class="color-filter pink" data-color="pink" title="Pink"></button>
+          <button class="color-filter blue" data-color="blue" title="Blue"></button>
+          <button class="color-filter purple" data-color="purple" title="Purple"></button>
+        </div>
+      </div>
+
+      <div class="highlights-list" id="highlights-list">
+        <div class="empty-state">No highlights on this page yet.</div>
+      </div>
+
+      <div class="actions">
+        <button id="share-btn" class="btn btn-primary" style="background: #4caf50;">Share This Page</button>
+        <button id="delete-all-btn" class="btn btn-danger">Delete All</button>
+      </div>
+    </div>
+
+    <!-- All Pages Tab -->
+    <div class="tab-content" id="all-tab">
+      <div class="search-bar">
+        <input type="text" id="search-all-input" placeholder="Search all highlights...">
+      </div>
+
+      <div class="highlights-list" id="all-highlights-list">
+        <div class="empty-state">No highlights saved.</div>
+      </div>
+
+      <div class="actions">
+        <button id="export-btn" class="btn">Export JSON</button>
+        <button id="import-btn" class="btn">Import JSON</button>
+        <input type="file" id="import-file" accept=".json" style="display: none;">
+      </div>
+    </div>
+
+    <!-- Settings Tab -->
+    <div class="tab-content" id="settings-tab">
+      <div class="settings-section">
+        <h3>Storage</h3>
+        <label class="checkbox-label">
+          <input type="checkbox" id="use-sync-checkbox">
+          <span>Use Chrome Sync (sync across devices)</span>
+        </label>
+        <p class="help-text">When enabled, highlights will sync across all your Chrome browsers where you're signed in.</p>
+      </div>
+
+      <div class="settings-section">
+        <h3>Keyboard Shortcuts</h3>
+        <div class="shortcut-item">
+          <span>Highlight selection:</span>
+          <kbd>Ctrl+Shift+H</kbd>
+        </div>
+        <div class="shortcut-item">
+          <span>Remove highlight:</span>
+          <kbd>Ctrl+Shift+U</kbd>
+        </div>
+        <p class="help-text">You can customize shortcuts in chrome://extensions/shortcuts</p>
+      </div>
+
+      <div class="settings-section">
+        <h3>About</h3>
+        <p>Text Highlighter Pro v1.0.0</p>
+        <p class="help-text">A powerful extension for highlighting and annotating web pages.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
