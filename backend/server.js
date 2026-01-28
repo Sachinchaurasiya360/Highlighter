@@ -94,7 +94,33 @@ app.get('/h/:id', async (req, res) => {
   }
 });
 
+/**
+ * GET /health
+ * Health check endpoint for monitoring
+ */
+app.get('/health', async (req, res) => {
+  try {
+    // Check MongoDB connection
+    const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
+    
+    res.json({
+      status: 'ok',
+      timestamp: new Date().toISOString(),
+      database: dbStatus,
+      uptime: process.uptime()
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: 'error',
+      message: error.message
+    });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Backend server running at http://localhost:${PORT}`);
   console.log(`Share links will be formatted as: http://localhost:${PORT}/h/ID`);
 });
+
+// Export for Vercel serverless functions
+module.exports = app;
