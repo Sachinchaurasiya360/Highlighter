@@ -176,7 +176,7 @@ const StorageManager = {
     if (highlights.length === 0) return null;
 
     try {
-      const response = await fetch('http://localhost:3000/api/highlights', {
+      const response = await fetch('https://highlighter-phi.vercel.app/api/highlights', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ const StorageManager = {
    */
   async fetchSharedHighlights(shareId) {
     try {
-      const response = await fetch(`http://localhost:3000/api/highlights/${shareId}`);
+      const response = await fetch(`https://highlighter-phi.vercel.app/api/highlights/${shareId}`);
       if (!response.ok) throw new Error('Failed to fetch shared highlights');
       const data = await response.json();
       return data;

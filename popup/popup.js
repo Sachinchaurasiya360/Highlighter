@@ -313,7 +313,7 @@ class PopupManager {
       const shareId = await this.shareWithBackend(this.currentUrl);
       
       if (shareId) {
-        const shareLink = `http://localhost:3000/h/${shareId}`;
+        const shareLink = `https://highlighter-phi.vercel.app/h/${shareId}`;
         await navigator.clipboard.writeText(shareLink);
         
         shareBtn.textContent = 'Link Copied!';
@@ -339,7 +339,7 @@ class PopupManager {
     // In popup, we might need a separate way to share or reuse StorageManager logic
     // Let's implement it directly here to be safe and simple
     try {
-      const response = await fetch('http://localhost:3000/api/highlights', {
+      const response = await fetch('https://highlighter-phi.vercel.app/api/highlights', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
